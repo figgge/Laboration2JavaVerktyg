@@ -28,6 +28,15 @@ class EmployeesTest {
     }
 
     @Test
-    void payEmployees() {
+    void testPayEmployeesShouldReturn3() {
+        assertEquals(3, employees.payEmployees());
+    }
+
+    @Test
+    void testEmployeeShouldNotGetPaidIfExceptionIsThrown() {
+        Mockito.doThrow(new RuntimeException()).when(bankService).pay(employee1.getId(),employee1.getSalary());
+        employees.payEmployees();
+
+        assertFalse(employee1.isPaid());
     }
 }
