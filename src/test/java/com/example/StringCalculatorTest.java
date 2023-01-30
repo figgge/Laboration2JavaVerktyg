@@ -36,4 +36,14 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(16);
     }
 
+    @Test
+    void addThreeNumbersSeparatedByNewLineShouldReturnSum(){
+        var result = stringCalculator.add("""
+                1,2
+                3
+                """);
+
+        assertThat(result).isEqualTo(6);
+    }
+
 }
