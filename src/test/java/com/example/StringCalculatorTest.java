@@ -81,4 +81,11 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(6);
     }
 
+    @Test
+    void twoDifferentDelimitersShouldSplitNumbersAndReturnSum() {
+        var result = stringCalculator.add("//[:][*]\n4:5*6");
+
+        assertThat(result).isEqualTo(15);
+    }
+
 }

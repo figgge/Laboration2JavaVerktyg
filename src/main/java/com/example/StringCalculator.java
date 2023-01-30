@@ -6,7 +6,7 @@ import java.util.List;
 public class StringCalculator {
 
     public int add(String s) {
-        char delimiter = ',';
+        String delimiter = ",";
         int sum = 0;
         List<String> negatives = new ArrayList<>();
 
@@ -14,11 +14,18 @@ public class StringCalculator {
             return 0;
 
         if (s.startsWith("//")){
-            if (s.indexOf("[") == 2)
-                delimiter = s.charAt(3);
-            else
-                delimiter = s.charAt(2);
+            char delimiter1 = ',';
+            char delimiter2 = ':';
+
+            if (s.indexOf("[") == 2) {
+                delimiter1 = s.charAt(3);
+                if (s.substring(4).contains("["))
+                    delimiter2 = s.charAt(s.lastIndexOf("[")+1);
+            }else
+                delimiter1 = s.charAt(2);
             s = s.substring(s.indexOf("\n") + 1);
+
+            delimiter = "[" + delimiter1 + "|" + delimiter2 + "]";
         }
 
         String[] numbers = s.split("(?<![" + delimiter + "|\\n])\\n|"+ delimiter + "+");
