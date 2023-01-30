@@ -23,6 +23,7 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(2);
     }
 
+
     @Test
     void oneAndTwoShouldReturnThree() {
         var result = stringCalculator.add("1,2");
@@ -64,6 +65,13 @@ public class StringCalculatorTest {
         String result = exception.getMessage();
 
         assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void onethousandoneShouldNotAddToSum() {
+        var result = stringCalculator.add("2,1001");
+
+        assertThat(result).isEqualTo(2);
     }
 
 }

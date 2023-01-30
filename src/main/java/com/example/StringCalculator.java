@@ -20,6 +20,8 @@ public class StringCalculator {
         for (String stringNumber: numbers) {
             if (stringNumber.charAt(0) == '-')
                 negatives.add(stringNumber);
+            else if (stringNumber.length() > 3)
+                continue;
             else
                 sum += Integer.parseInt(stringNumber);
         }
