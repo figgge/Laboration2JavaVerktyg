@@ -22,4 +22,11 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(2);
     }
 
+    @Test
+    void oneAndTwoShouldReturnThree() {
+        var result = stringCalculator.add("1,2");
+
+        assertThat(result).isEqualTo(3);
+    }
+
 }
