@@ -14,15 +14,15 @@ public class StringCalculator {
             return 0;
 
         if (s.startsWith("//")){
-            char delimiter1 = ',';
-            char delimiter2 = ':';
+            String delimiter1 = ",";
+            String delimiter2 = ":";
 
             if (s.indexOf("[") == 2) {
-                delimiter1 = s.charAt(3);
+                delimiter1 = s.substring(3, s.indexOf("]"));
                 if (s.substring(4).contains("["))
-                    delimiter2 = s.charAt(s.lastIndexOf("[")+1);
+                    delimiter2 = s.substring(s.lastIndexOf("[") + 1, s.lastIndexOf("]"));
             }else
-                delimiter1 = s.charAt(2);
+                delimiter1 = s.substring(2,2);
             s = s.substring(s.indexOf("\n") + 1);
 
             delimiter = "[" + delimiter1 + "|" + delimiter2 + "]";

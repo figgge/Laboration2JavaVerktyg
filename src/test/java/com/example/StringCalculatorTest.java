@@ -88,4 +88,11 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(15);
     }
 
+    @Test
+    void delimitersLongerThanOneCharacterShouldSplitNumbersAndReturnSum() {
+        var result = stringCalculator.add("//[:!#][*&]\n3:!#4*&5");
+
+        assertThat(result).isEqualTo(12);
+    }
+
 }
