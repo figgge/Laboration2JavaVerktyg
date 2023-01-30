@@ -12,11 +12,16 @@ public class StringCalculator {
 
         if (s.equals(""))
             return 0;
-        if (s.substring(0,2).equals("//")){
-            delimiter = s.charAt(2);
-            s = s.substring(4);
+
+        if (s.startsWith("//")){
+            if (s.indexOf("[") == 2)
+                delimiter = s.charAt(3);
+            else
+                delimiter = s.charAt(2);
+            s = s.substring(s.indexOf("\n") + 1);
         }
-        String[] numbers = s.split("(?<![" + delimiter + "|\\n])\\n|"+ delimiter);
+
+        String[] numbers = s.split("(?<![" + delimiter + "|\\n])\\n|"+ delimiter + "+");
         for (String stringNumber: numbers) {
             if (stringNumber.charAt(0) == '-')
                 negatives.add(stringNumber);

@@ -74,4 +74,11 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(2);
     }
 
+    @Test
+    void threeColonsShouldSplitNumberAndReturnSum() {
+        var result = stringCalculator.add("//[:::]\n1:::2:::3");
+
+        assertThat(result).isEqualTo(6);
+    }
+
 }
