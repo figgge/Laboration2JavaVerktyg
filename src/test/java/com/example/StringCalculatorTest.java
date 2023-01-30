@@ -29,4 +29,11 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @Test
+    void addFourNumbersShouldReturnCorrectSum() {
+        var result = stringCalculator.add("1,2,3,10");
+
+        assertThat(result).isEqualTo(16);
+    }
+
 }
