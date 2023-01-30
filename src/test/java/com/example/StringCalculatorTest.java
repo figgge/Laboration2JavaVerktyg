@@ -10,7 +10,7 @@ public class StringCalculatorTest {
     StringCalculator stringCalculator = new StringCalculator();
 
     @Test
-    void emptyStringShouldReturnZero(){
+    void emptyStringShouldReturnZero() {
         var result = stringCalculator.add("");
 
         assertEquals(0, result);
@@ -39,7 +39,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    void addThreeNumbersSeparatedByNewLineShouldReturnSum(){
+    void addThreeNumbersSeparatedByNewLineShouldReturnSum() {
         var result = stringCalculator.add("""
                 1,2
                 3
@@ -56,7 +56,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    void negativeNumbersShouldThrowException(){
+    void negativeNumbersShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             stringCalculator.add("-1,-2");
         });
