@@ -3,6 +3,7 @@ package com.example;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.*;
 
 public class StringCalculatorTest {
     StringCalculator stringCalculator = new StringCalculator();
@@ -13,4 +14,12 @@ public class StringCalculatorTest {
 
         assertEquals(0, result);
     }
+
+    @Test
+    void oneAndOneShouldReturnTwo() {
+        var result = stringCalculator.add("1,1");
+
+        assertThat(result).isEqualTo(2);
+    }
+
 }
