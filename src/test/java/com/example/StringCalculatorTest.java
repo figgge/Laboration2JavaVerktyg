@@ -46,4 +46,11 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(6);
     }
 
+    @Test
+    void colonShouldSplitNumbersAndReturnSum() {
+        var result = stringCalculator.add("//:\n10:2:3");
+
+        assertThat(result).isEqualTo(15);
+    }
+
 }
