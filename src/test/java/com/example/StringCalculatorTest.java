@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
     StringCalculator stringCalculator = new StringCalculator();
@@ -51,6 +52,18 @@ public class StringCalculatorTest {
         var result = stringCalculator.add("//:\n10:2:3");
 
         assertThat(result).isEqualTo(15);
+    }
+
+    @Test
+    void negativeNumbersShouldThrowException(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            stringCalculator.add("-1,-2");
+        });
+
+        String expected = "negatives not allowed\n-1\n-2";
+        String result = exception.getMessage();
+
+        assertThat(result).isEqualTo(expected);
     }
 
 }
