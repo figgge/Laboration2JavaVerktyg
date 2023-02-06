@@ -25,4 +25,15 @@ public class GameTest {
 
         assertThat(result).isEqualTo(2);
     }
+
+    @Test
+    void rollOneThreeTimesShouldReturnScore2() {
+        game.roll(1);
+        game.roll(1);
+        game.roll(1);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(2);
+    }
 }
