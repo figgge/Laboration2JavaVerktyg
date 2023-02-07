@@ -18,9 +18,13 @@ public class Game {
     public int score() {
         frame = 0;
         frameIndex = 1;
-        boolean[] isStrike = new boolean[10];
+        boolean[] isStrike = new boolean[11];
 
         for (int i = 0; i < rollScore.size(); i++) {
+
+            if (frame == 10)
+                break;
+
             if (frameIndex == 1 && rollScore.get(i) == 10) {
                 frames[frame] += rollScore.get(i) + rollScore.get(i + 1) + rollScore.get(i + 2);
                 frame += 1;

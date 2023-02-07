@@ -70,4 +70,15 @@ public class GameTest {
 
         assertThat(result).isEqualTo(33);
     }
+
+    @Test
+    void perfectGameShouldReturn300() {
+        for (int i = 0; i < 12; i++) {
+            game.roll(10);
+        }
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(300);
+    }
 }
