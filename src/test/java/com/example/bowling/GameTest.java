@@ -81,4 +81,18 @@ public class GameTest {
 
         assertThat(result).isEqualTo(300);
     }
+
+    @Test
+    void spareFollowedBySpareShouldReturnScore30() {
+        game.roll(5);
+        game.roll(5);
+        game.roll(5);
+        game.roll(5);
+        game.roll(5);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(30);
+    }
+
 }

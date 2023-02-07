@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Game {
-    private int score;
     private List<Integer> rollScore = new ArrayList<>();
     int[] frames = new int[10];
     int frame;
@@ -32,9 +31,10 @@ public class Game {
                 continue;
             }
 
-            if (!isStrike[frame] && frame >= 1 && rollScore.get(i - 2) + rollScore.get(i - 1) == 10) {
-                frames[frame - 1] += rollScore.get(i);
+            if (frameIndex == 1 && !isStrike[frame] && frame >= 1 && rollScore.get(i - 2) + rollScore.get(i - 1) == 10) {
+                    frames[frame - 1] += rollScore.get(i);
             }
+
 
             if (frameIndex == 2) {
                 frames[frame] += rollScore.get(i - 1) + rollScore.get(i);
