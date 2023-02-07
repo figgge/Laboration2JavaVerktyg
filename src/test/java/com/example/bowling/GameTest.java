@@ -47,4 +47,15 @@ public class GameTest {
 
         assertThat(result).isEqualTo(17);
     }
+
+    @Test
+    void strike3And4ShouldReturnScore24() {
+        game.roll(10);
+        game.roll(3);
+        game.roll(4);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(24);
+    }
 }

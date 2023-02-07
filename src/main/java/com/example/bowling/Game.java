@@ -18,8 +18,17 @@ public class Game {
     public int score() {
         frame = 0;
         frameIndex = 1;
+        boolean isStrike = false;
+
         for (int i = 0; i < rollScore.size(); i++) {
-            if (frame >= 1 && rollScore.get(i - 2) + rollScore.get(i - 1) == 10) {
+            if (frameIndex == 1 && rollScore.get(i) == 10) {
+                frames[frame] += rollScore.get(i) + rollScore.get(i + 1) + rollScore.get(i + 2);
+                frame += 1;
+                isStrike = true;
+                continue;
+            }
+
+            if (!isStrike && frame >= 1 && rollScore.get(i - 2) + rollScore.get(i - 1) == 10) {
                 frames[frame - 1] += rollScore.get(i);
             }
 
