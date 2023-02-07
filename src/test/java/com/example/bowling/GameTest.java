@@ -36,4 +36,15 @@ public class GameTest {
 
         assertThat(result).isEqualTo(2);
     }
+
+    @Test
+    void rollSpareShouldReturnScore17() {
+        game.roll(5);
+        game.roll(5);
+        game.roll(7);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(17);
+    }
 }
