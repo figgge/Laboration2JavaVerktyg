@@ -1,7 +1,8 @@
 package com.example.bowling;
 
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameTest {
     Game game = new Game();
@@ -136,6 +137,31 @@ public class GameTest {
         assertThat(result).isEqualTo(133);
     }
 
+    @Test
+    void fullGameWithSparesStrikesAndOpenFramesShouldReturnCorrectScore2() {
+        game.roll(5);
+        game.roll(5);
+        game.roll(10);
+        game.roll(5);
+        game.roll(5);
+        game.roll(5);
+        game.roll(3);
+        game.roll(4);
+        game.roll(1);
+        game.roll(0);
+        game.roll(0);
+        game.roll(10);
+        game.roll(9);
+        game.roll(1);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(6);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(164);
+    }
 
 
 }

@@ -40,7 +40,6 @@ public class Game {
             }
 
 
-
             if (frameIndex == 2) {
                 frames[frame] += rollScore.get(i - 1) + rollScore.get(i);
                 frame += 1;
