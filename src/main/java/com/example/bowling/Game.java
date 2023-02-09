@@ -21,6 +21,10 @@ public class Game {
 
         for (int i = 0; i < rollScore.size(); i++) {
 
+
+            if (frame == 10 && rollScore.get(i - 2) + rollScore.get(i - 1) == 10) {
+                frames[frame - 1] += rollScore.get(i);
+            }
             if (frame == 10)
                 break;
 
