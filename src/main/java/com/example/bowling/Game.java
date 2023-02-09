@@ -24,6 +24,10 @@ public class Game {
             if (frame == 10)
                 break;
 
+            if (frameIndex == 1 && !isStrike[frame] && frame >= 1 && rollScore.get(i - 2) + rollScore.get(i - 1) == 10) {
+                frames[frame - 1] += rollScore.get(i);
+            }
+
             if (frameIndex == 1 && rollScore.get(i) == 10) {
                 frames[frame] += rollScore.get(i) + rollScore.get(i + 1) + rollScore.get(i + 2);
                 frame += 1;
@@ -31,9 +35,6 @@ public class Game {
                 continue;
             }
 
-            if (frameIndex == 1 && !isStrike[frame] && frame >= 1 && rollScore.get(i - 2) + rollScore.get(i - 1) == 10) {
-                    frames[frame - 1] += rollScore.get(i);
-            }
 
 
             if (frameIndex == 2) {

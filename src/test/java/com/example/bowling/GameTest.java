@@ -95,4 +95,20 @@ public class GameTest {
         assertThat(result).isEqualTo(30);
     }
 
+    @Test
+    void spareStrikeSpareShouldReturnScore55() {
+        game.roll(5);
+        game.roll(5);
+        game.roll(10);
+        game.roll(5);
+        game.roll(5);
+        game.roll(5);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(55);
+    }
+
+
+
 }
